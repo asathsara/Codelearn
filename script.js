@@ -1,26 +1,27 @@
 // Scroll-to-Top Button
-const scrollToTopButton = document.createElement('button');
-scrollToTopButton.textContent = '↑';
-scrollToTopButton.classList.add('scroll-to-top');
-document.body.appendChild(scrollToTopButton);
+document.addEventListener("DOMContentLoaded", function () {
+  const fab = document.getElementById("fab");
 
-scrollToTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Show the FAB when the user scrolls down 100px from the top of the document
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      fab.style.display = "flex";
+    } else {
+      fab.style.display = "none";
+    }
+  });
+
+  // Scroll to the top when the FAB is clicked
+  fab.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 });
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) {
-    scrollToTopButton.style.display = 'block';
-  } else {
-    scrollToTopButton.style.display = 'none';
-  }
-});
 
 
-
-greeting.style.fontSize = '1.2rem';
-greeting.style.marginTop = '10px';
-heroContent.appendChild(greeting);
 
 // Card Hover Effect
 const cards = document.querySelectorAll('.card');
